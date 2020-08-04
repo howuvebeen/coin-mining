@@ -1,4 +1,4 @@
-# tasty-toast
+# coin-mining
 
 
 
