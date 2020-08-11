@@ -5,10 +5,10 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-    <a href="https://github.com/howuvebeen/coin-mining"><img src="gifs/preview.gif" alt="preview"></a>
+    <img src="gifs/preview.gif" alt="preview">
 </p>
 
-<a href="https://github.com/howuvebeen/coin-mining"><h2 align="center">Coin Mining</h2></a>
+<h2 align="center">Coin Mining</h2>
 
 <p align="center">
 <strong>Applied Dijkstra’s algorithm to coin mining game using Java. Utilized HashMap and LinkedList to program the character to collect most coins by priority within given steps.</strong>
