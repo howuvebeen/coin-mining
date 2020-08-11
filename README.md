@@ -48,9 +48,9 @@
 <!-- ABOUT THE PROJECT -->
 # About The Project
 
-This is the final project I've done for **CS 2100**, Object-Oriented Programming and Data Structure. I received 96.1 out of 100. 
-
 Someone dropped a famous, expensive ring. With a special glasses, Diver Min is going into the swer system to find the ring. After he found the ring, he starts fleeing -running to the exit. Then, he sees coins all over the sewer system, and while fleeing, Min picks up as many coins as possible. 
+
+This is the final project I've done for **CS 2100**, Object-Oriented Programming and Data Structure. I received 96.1 out of 100. 
 
 ## Built With
 
@@ -111,41 +111,41 @@ These are codes of the key algorithms I built. To see more, refer to **DiverMin.
 
 ```
 @Override
-	public void find(FindState state) {
-		// TODO : Find the ring and return.
-		// DO NOT WRITE ALL THE CODE HERE. DO NOT MAKE THIS METHOD RECURSIVE.
-		// Instead, write your method elsewhere, with a good specification,
-		// and call it from this one.
-		dfsWalk(state);
-	}
+public void find(FindState state) {
+	// TODO : Find the ring and return.
+	// DO NOT WRITE ALL THE CODE HERE. DO NOT MAKE THIS METHOD RECURSIVE.
+	// Instead, write your method elsewhere, with a good specification,
+	// and call it from this one.
+	dfsWalk(state);
+}
 
 /** The DiverMin is standing on a location given by FindState state. Visit every neighbors
-	 * (priority on shortest distance to the ring) reachable along paths of unvisited neighbors from
-	 * location. End with walker standing on location. Precondition: location is unvisited. */
-	public void dfsWalk(FindState state) {
-		// Helper Function for method find();
-		// This function uses dfs to find the ring in the maze with minimum steps.
-		long location= state.currentLocation();
+ * (priority on shortest distance to the ring) reachable along paths of unvisited neighbors from
+ * location. End with walker standing on location. Precondition: location is unvisited. */
+public void dfsWalk(FindState state) {
+	// Helper Function for method find();
+	// This function uses dfs to find the ring in the maze with minimum steps.
+	long location= state.currentLocation();
 
-		if (state.distanceToRing() == 0) return;
-		set.add(location);
+	if (state.distanceToRing() == 0) return;
+	set.add(location);
 
-		Collection<NodeStatus> neighbors= state.neighbors();
-		Heap<NodeStatus> heap= new Heap<>(true);
-		for (NodeStatus n : neighbors) {
-			int distance= n.getDistanceToTarget();
-			heap.add(n, distance);
-		}
+	Collection<NodeStatus> neighbors= state.neighbors();
+	Heap<NodeStatus> heap= new Heap<>(true);
+	for (NodeStatus n : neighbors) {
+		int distance= n.getDistanceToTarget();
+		heap.add(n, distance);
+	}
 
-		while (heap.size() != 0) {
-			NodeStatus minn= heap.poll();
-			if (set.contains(minn.getId()) == false) {
-				if (state.distanceToRing() != 0) state.moveTo(minn.getId());
-				dfsWalk(state);
-				if (state.distanceToRing() != 0) state.moveTo(location);
-			}
+	while (heap.size() != 0) {
+		NodeStatus minn= heap.poll();
+		if (set.contains(minn.getId()) == false) {
+			if (state.distanceToRing() != 0) state.moveTo(minn.getId());
+			dfsWalk(state);
+			if (state.distanceToRing() != 0) state.moveTo(location);
 		}
 	}
+}
 ```
 
 ## Flee Phase
